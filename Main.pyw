@@ -1,11 +1,13 @@
 
 from customtkinter import *
+import customtkinter
 from componentes import Frame_determinante
 from componentes.Frame_Oper import Frame_Operaciones
 
 app = CTk()
 app.title("Parcial 2 - Análisis Numérico")
 app.geometry("850x550")
+customtkinter.set_appearance_mode("dark")
  
 app.resizable(0,0)
 app.configure(padx=20, pady=10)
