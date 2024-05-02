@@ -7,9 +7,6 @@ class Determinante:
     Matriz : list[CTkEntry] = []
     row : int
     column : int
-    count=0
-    count_f=0
-    band = True
 
     @staticmethod
     def recibe_entrys(entry: CTkEntry):
@@ -31,16 +28,33 @@ class Determinante:
             matriz_np = np.array(matriz_values)            
             return [True, f"{round(np.linalg.det(matriz_np),4):.4f}"]
         
-        except ArithmeticError:
-            Errors.msg_error = "XD"
-            return [False]
-        
-        except EOFError:
-            Errors.msg_error = "XD"
-            return [False]
-
-        except:
-            Errors.msg_error = "General"
+        # except ZeroDivisionError:
+        #     Errors.msg_error = "División por cero"
+        #     return [False]
+        # except IndexError:
+        #     Errors.msg_error = "Campo(s) nulo"
+        #     return [False]
+        # except KeyError:
+        #     Errors.msg_error = "Campo(s) nulo"
+        #     return [False]
+        # except AttributeError:
+        #     Errors.msg_error = "Campo(s) nulo"
+        #     return [False]
+        # except ArithmeticError:
+        #     Errors.msg_error = "Operación no válida o posible división por cero"
+        #     return [False]
+        # except ValueError:
+        #     Errors.msg_error = "Campo(s) nulo"
+        #     return [False]
+        # except TypeError:
+        #     Errors.msg_error = "Operación no válida"
+        #     return [False]
+        # except SyntaxError:
+        #     Errors.msg_error = "Operación no válida"
+        #     return [False]
+        except Exception as e:
+            print("eoror")
+            Errors.msg_error = e
             return [False]
         
 

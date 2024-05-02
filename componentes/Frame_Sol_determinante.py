@@ -25,6 +25,7 @@ class Solution_determinante:
             Solution_determinante.solution_det.pack(fill="both", expand=1)
             Solution_determinante.frame_def_determinante.pack_forget()
         else:
+            
             Errors.show_label()        
 
     @staticmethod
@@ -40,8 +41,8 @@ class Solution_determinante:
         bt = CTkButton(Solution_determinante.solution_det, text="Back", width=40, command=Solution_determinante.toBack)
         bt.place(x=10, y=10)
 
-        label_wasa = CTkLabel(Solution_determinante.solution_det, text="El determinante es:", font=("Arial",22), fg_color="azure", text_color="black", corner_radius=10)
-        label_wasa.pack(ipadx=8, ipady=8, pady=50)
+        label_sol = CTkLabel(Solution_determinante.solution_det, text="El determinante es:", font=("Arial",22), fg_color="azure", text_color="black", corner_radius=10)
+        label_sol.pack(ipadx=8, ipady=8, pady=50)
 
         label_rta = CTkLabel(Solution_determinante.solution_det, text=Solution_determinante.rta_det, width=150, height=50, corner_radius=10, fg_color="turquoise4", font=("Arial",24))
         label_rta.pack(ipadx=20, ipady=20)

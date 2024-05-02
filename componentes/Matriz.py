@@ -35,9 +35,7 @@ class Matriz:
 
 
     @staticmethod
-    def createMatriz_oper(row, column):
-
-        
+    def createMatriz_oper(row:int, column:int):        
         
         if Matriz.frame1 is not None:
             Matriz.frame1.destroy()
@@ -59,7 +57,15 @@ class Matriz:
                 entry.grid(column=j, row=i, padx=4, pady=4)
                 Suma_Resta.recibe_entrys(entry)
 
-        Matriz.frame1.grid(row=0, column=0)
-        Matriz.frame2.grid(row=0, column=1, padx=40) 
+        Matriz.frame1.grid(row=0, column=0, padx=40)
+        Matriz.frame2.grid(row=0, column=1) 
 
+    @staticmethod
+    def show_matriz_sol(frame_sol:CTkFrame, row:int, col:int, rta_matriz:list ):
+        # for i in range(row):
+        #     for j in range(col):
+        #         label = CTkLabel(frame_sol, text=rta_matriz[i][j], width=35, height=30, font=("Arial", 14))
+        #         label.grid(column=j, row=i, padx=4, pady=4)
+        print("mostrando matriz")
+        pass
         

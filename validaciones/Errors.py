@@ -12,10 +12,14 @@ class Errors:
 
     @staticmethod
     def show_label():
-        if --Errors.hide:
-            Errors.hide_label()
+        if Errors.hide:
+            print("mostrnado label")
             Errors.label.configure(text=Errors.msg_error)
             Errors.label.pack(pady=10)
+            Errors.hide = False
+        else:
+            Errors.hide_label()
+            Errors.show_label()
 
 
     @staticmethod
@@ -23,4 +27,5 @@ class Errors:
         if --Errors.hide:
             Errors.label.pack_forget()
             Errors.hide = True
+ 
  
