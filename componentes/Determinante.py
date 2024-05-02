@@ -53,8 +53,8 @@ class Determinante:
             Errors.msg_error = "Operación no válida"
             return [False]
         except SyntaxError:
-            Errors.msg_error = "Operación no válida"
+            Errors.msg_error = "Campo(s) nulo"
             return [False]
         except Exception as e:
-            Errors.msg_error = e
+            Errors.msg_error = "Por favor leer instrucciones"
             return [False]

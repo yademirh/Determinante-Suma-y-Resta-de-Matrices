@@ -75,14 +75,14 @@ class Matriz:
                 entry.grid(column=j, row=i, padx=4, pady=4)
                 Suma_Resta.recibe_entrys(entry)
 
-        Matriz.frame1.grid(row=0, column=0, padx=40)
-        Matriz.frame2.grid(row=0, column=1)
+        Matriz.frame1.grid(row=0, column=0, padx=20)
+        Matriz.frame2.grid(row=0, column=1, padx=20)
 
     @staticmethod
     def show_matriz_sol(frame_sol: CTkFrame, row: int, col: int, rta_matriz: list):
         for i in range(row):
             for j in range(col):
-                label = CTkLabel(frame_sol, text=rta_matriz[i][j], width=35, height=30, font=("Arial", 14))
+                label = CTkLabel(frame_sol, text=rta_matriz[i][j], width=35, height=30, font=("Arial", 16), corner_radius=5, fg_color="gray25")
                 label.grid(column=j, row=i, padx=5, pady=5)
         
         pass

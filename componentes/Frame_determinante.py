@@ -42,14 +42,15 @@ class Frame_determinante:
         Frame_determinante.frame_def_determinante = CTkFrame(
             Frame_determinante.root,
             border_width=3,
-            fg_color="LightBlue4",
             corner_radius=10,
         )
 
         frame_left = CTkScrollableFrame(Frame_determinante.frame_def_determinante)
-        frame_left.pack(fill="both", expand=1, side="left")
+        # frame_left.pack(fill="both", expand=1, side="left")
+        frame_left.grid(row=0, column=0, sticky="nsew")
         frame_right = CTkFrame(Frame_determinante.frame_def_determinante)
-        frame_right.pack(fill="both", expand=1, side="left")
+        # frame_right.pack(fill="both", expand=1, side="left")
+        frame_right.grid(row=0, column=1, sticky="nsew")
 
         bt = CTkButton(
             Frame_determinante.frame_def_determinante,
@@ -59,9 +60,11 @@ class Frame_determinante:
         )
         bt.place(x=10, y=10)
 
-        # Frame_determinante.frame_def_determinante.columnconfigure([0,1], weight=1)
+        Frame_determinante.frame_def_determinante.columnconfigure(0, weight=2)
+        Frame_determinante.frame_def_determinante.columnconfigure(1, weight=1)
+        Frame_determinante.frame_def_determinante.rowconfigure(0,weight=1)
 
-        container = CTkFrame(frame_left)
+        container = CTkFrame(frame_left, fg_color="transparent")
 
         label_defineSize = CTkLabel(
             container,
@@ -69,7 +72,7 @@ class Frame_determinante:
             corner_radius=5,
             fg_color="LightCyan3",
             text_color="black",
-            font=("Arial", 14),
+            font=("Arial", 16),
         )
         label_defineSize.grid(row=0, column=0)
 
@@ -85,7 +88,7 @@ class Frame_determinante:
         container.pack(pady=50)
 
         frame_det = CTkFrame(frame_left)
-        frame_det.pack(fill="both", expand=1)
+        frame_det.pack()
 
         btn_calculate = CTkButton(
             frame_left,
@@ -111,7 +114,7 @@ class Frame_determinante:
 
         label_instrucciones = CTkLabel(
             frame_right,
-            text="\tInstrucciones:\n* Permite solo el uso de punto (.) para números decimales.\n* Permite slash (/) para indicar una fraccion.\n* No permite cualquier otro tipo de caracteres ni espacio en blanco.\n* Llenar todos los campos",
+            text="          Instrucciones:\n* Permite solo el uso de punto (.) para números decimales.\n* Permite slash (/) para indicar una fraccion.\n* No permite cualquier otro tipo de caracteres ni espacio en blanco.\n* Llenar todos los campos",
             wraplength=200,
             font=("Arial", 16),
             fg_color="CadetBlue4",

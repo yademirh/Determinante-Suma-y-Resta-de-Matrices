@@ -65,14 +65,14 @@ class Solution_Operaciones:
             Solution_Operaciones.solution_oper,
             text="La matriz resultante es:",
             font=("Arial", 22),
-            fg_color="azure",
+            fg_color="LightBlue3",
             text_color="black",
             corner_radius=10,
         )
         label_sol.pack(ipadx=8, ipady=8, pady=50)
 
         frame_sol = CTkFrame(Solution_Operaciones.solution_oper, fg_color="turquoise4",)
-        frame_sol.pack(ipadx=10, ipady=10)
+        frame_sol.pack()
 
         Matriz.show_matriz_sol(
             frame_sol,

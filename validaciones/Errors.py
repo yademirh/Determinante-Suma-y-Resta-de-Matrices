@@ -21,7 +21,7 @@ class Errors:
     def show_label_det():
         if Errors.hide_1:
             Errors.label_1.configure(text=Errors.msg_error)
-            Errors.label_1.pack(pady=10)
+            Errors.label_1.pack(pady=20)
             Errors.hide_1 = False
         else:
             Errors.hide_label_det()
@@ -38,7 +38,7 @@ class Errors:
     def show_label_oper():
         if Errors.hide_2:
             Errors.label_2.configure(text=Errors.msg_error)
-            Errors.label_2.pack(pady=10)
+            Errors.label_2.pack(pady=20)
             Errors.hide_2 = False
         else:
             Errors.hide_label_oper()

@@ -38,54 +38,52 @@ class Frame_Operaciones:
                 Suma_Resta.row = row
                 Suma_Resta.column = column
                 if len(Suma_Resta.Matriz) > 0:
-                    Suma_Resta.Matriz.clear()
-                    
+                    Suma_Resta.Matriz.clear()                    
                 Matriz.createMatriz_oper(row, column)
                 Errors.hide_label_oper()
-
         except ZeroDivisionError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "División por cero"
             Errors.show_label_oper()
         except IndexError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Campo(s) nulo"
             Errors.show_label_oper()
         except KeyError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Campo(s) nulo"
             Errors.show_label_oper()
         except AttributeError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Campo(s) nulo"
             Errors.show_label_oper()
         except ArithmeticError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Operación no válida o posible división por cero"
             Errors.show_label_oper()
         except ValueError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Campo(s) nulo"
             Errors.show_label_oper()
         except TypeError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Operación no válida"
             Errors.show_label_oper()
         except SyntaxError:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = "Operación no válida"
             Errors.show_label_oper()
         except Exception as e:
-            Matriz.frame1.destroy()
-            Matriz.frame2.destroy()
+            Matriz.frame1.pack_forget()
+            Matriz.frame2.pack_forget()
             Errors.msg_error = e
             Errors.show_label_oper()
 
@@ -94,7 +92,6 @@ class Frame_Operaciones:
         Frame_Operaciones.frame_oper = CTkFrame(
             Frame_Operaciones.root,
             border_width=3,
-            fg_color="dark slate gray",
             corner_radius=10,
         )
 
@@ -117,11 +114,11 @@ class Frame_Operaciones:
         Frame_Operaciones.frame_oper.columnconfigure(1, weight=1)
         Frame_Operaciones.frame_oper.rowconfigure(0, weight=1)
 
-        container = CTkFrame(frame_left)
+        container = CTkFrame(frame_left, fg_color="transparent")
 
         label_defineSize = CTkLabel(
             container,
-            text="Define el tamaño de la matriz: ",
+            text="Define el tamaño de la matriz",
             corner_radius=5,
             fg_color="LightCyan3",
             text_color="black",
@@ -158,24 +155,46 @@ class Frame_Operaciones:
 
         container.pack(pady=50)
 
-        div_operaciones = CTkFrame(frame_left, fg_color="azure")
+        div_operaciones = CTkFrame(frame_left)
         div_operaciones.pack()
 
-        div_btns = CTkFrame(frame_left)
+        label_aclaraciones = CTkLabel(
+            frame_right,
+            wraplength=200,
+            text="\tNota:\n* Solo se pueden sumar/restar dos matrices con las mismas dimensiones.",
+            font=("Arial", 16),
+            fg_color="CadetBlue4",
+            justify="left",
+            corner_radius=5,
+        )
+        label_aclaraciones.pack(ipady=10, ipadx=20, pady=30)       
+        
+        label_instrucciones = CTkLabel(
+            frame_right,
+            text="          Instrucciones:\n* Permite solo el uso de punto (.) para números decimales.\n* Permite slash (/) para indicar una fraccion.\n* No permite cualquier otro tipo de caracteres ni espacio en blanco.\n* Llenar todos los campos.",
+            wraplength=200,
+            font=("Arial", 16),
+            fg_color="CadetBlue4",
+            justify="left",
+            corner_radius=5,
+        )
+        label_instrucciones.pack(pady=10, ipady=10, ipadx=20)   
+
+        div_btns = CTkFrame(frame_left, fg_color="transparent")
         btn_calculate_sum = CTkButton(
             div_btns,
             text="CALCULAR SUMA",
             command=Solution_Operaciones.show_frame_sol_oper_sum,
             font=("Arial", 16),
         )
-        btn_calculate_sum.grid(row=0, column=0)
+        btn_calculate_sum.grid(row=0, column=0, padx=20)
         btn_calculate_rest = CTkButton(
             div_btns,
             text="CALCULAR RESTA",
             command=Solution_Operaciones.show_frame_sol_oper_rest,
             font=("Arial", 16),
         )
-        btn_calculate_rest.grid(row=0, column=1, padx=40)
+        btn_calculate_rest.grid(row=0, column=1, padx=20)
         div_btns.pack(pady=30)
 
         label_error = CTkLabel(
