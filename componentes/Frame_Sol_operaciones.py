@@ -11,11 +11,14 @@ class Solution_Operaciones:
     rta_funcion: bool = []
     rta_oper = []
 
+    #Recibir la ventana y el frame padre
     @staticmethod
     def define_root(app, frame_oper):
         Solution_Operaciones.root = app
         Solution_Operaciones.frame_oper = frame_oper
 
+    # Mostrar el frame de la solucion y ocultar el frame padre
+    # Tambien recibimos la matriz resultante (SUMA)
     @staticmethod
     def show_frame_sol_oper_sum():
         Suma_Resta.band = True
@@ -29,6 +32,8 @@ class Solution_Operaciones:
         else:
             Errors.show_label_oper()
 
+    # Mostrar el frame de la solucion y ocultar el frame padre
+    # Tambien recibimos la matriz resultante (RESTA)
     @staticmethod
     def show_frame_sol_oper_rest():
         Suma_Resta.band = False
@@ -42,11 +47,13 @@ class Solution_Operaciones:
         else:
             Errors.show_label_oper()
 
+    # Mostrar el frame padre y ocultar donde estoy
     @staticmethod
     def toBack():
         Solution_Operaciones.frame_oper.pack(fill="both", expand=1)
         Solution_Operaciones.solution_oper.pack_forget()
 
+    # Crear el frame
     @staticmethod
     def create_frame():
         Solution_Operaciones.solution_oper = CTkFrame(

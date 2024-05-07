@@ -10,11 +10,14 @@ class Solution_determinante:
     rta_funcion = []
     rta_det = " "
 
+    #Recibir la ventana y el frame padre
     @staticmethod
     def define_root(app, frame_det):
         Solution_determinante.root = app
         Solution_determinante.frame_def_determinante = frame_det
 
+    # Mostrar el frame de la solucion y ocultar el frame padre
+    # Tambien recibimos la respuesta final
     @staticmethod
     def show_frame_sol_det():
         Solution_determinante.rta_funcion = Determinante.calculate_det()
@@ -28,17 +31,19 @@ class Solution_determinante:
 
             Errors.show_label_det()
 
+    # Mostrar el frame padre y ocultar donde estoy
     @staticmethod
     def toBack():
         Solution_determinante.frame_def_determinante.pack(fill="both", expand=1)
         Solution_determinante.solution_det.pack_forget()
 
+    # Crear el frame
     @staticmethod
     def create_frame():
 
         Solution_determinante.solution_det = CTkFrame(
             Solution_determinante.root, border_width=3, corner_radius=10
-        )  # fg_color="LightBlue3",
+        )
 
         bt = CTkButton(
             Solution_determinante.solution_det,

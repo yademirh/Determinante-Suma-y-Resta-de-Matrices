@@ -9,10 +9,12 @@ class Determinante:
     row: int
     column: int
 
+    # Recibir cada entry que se genera
     @staticmethod
     def recibe_entrys(entry: CTkEntry):
         Determinante.Matriz.append(entry)
 
+    # Sacar el numero de cada entry, validarlo y retornar el resultado
     @staticmethod
     def calculate_det():
         matriz_values = []

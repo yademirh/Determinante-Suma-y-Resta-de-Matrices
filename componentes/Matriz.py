@@ -11,14 +11,17 @@ class Matriz:
     frame1: CTkFrame = None
     frame2: CTkFrame = None
 
+    # Recibe frame para generar entrys de determinante
     @staticmethod
     def defineRoot(frame_det: CTkFrame):
         Matriz.root_1 = frame_det
 
+    # Recibe frame para generar entrys de suma y resta
     @staticmethod
     def defineRoot_oper(frame_det: CTkFrame):
         Matriz.root_2 = frame_det
 
+    # Genera entrys y organiza en forma de matriz para determinante
     @staticmethod
     def createMatriz(row, column):
 
@@ -40,6 +43,7 @@ class Matriz:
                 Determinante.recibe_entrys(entry)
         Matriz.frame.pack()
 
+    # Genera entrys y organiza en forma de dos matrices para sumar o restar
     @staticmethod
     def createMatriz_oper(row: int, column: int):
 
@@ -78,6 +82,7 @@ class Matriz:
         Matriz.frame1.grid(row=0, column=0, padx=20)
         Matriz.frame2.grid(row=0, column=1, padx=20)
 
+    # Genera labels y va mostrando el resultado de la suma o resta de matrices 
     @staticmethod
     def show_matriz_sol(frame_sol: CTkFrame, row: int, col: int, rta_matriz: list):
         for i in range(row):

@@ -13,22 +13,26 @@ class Frame_Operaciones:
     options_size_row: CTkEntry
     options_size_column: CTkEntry
 
+    # Recibe la ventana y el frame padre
     @staticmethod
     def define_root(app, frame_main):
         Frame_Operaciones.root = app
         Frame_Operaciones.main = frame_main
 
+    # Muestra el frame y oculta al padre
     @staticmethod
     def show_frame_op():
         Frame_Operaciones.frame_oper.pack(fill="both", expand=1)
         Frame_Operaciones.main.pack_forget()
 
+    # Devolver al frame principal
     @staticmethod
     def to_back():
         Frame_Operaciones.main.pack(fill="both", expand=1)
         Frame_Operaciones.frame_oper.pack_forget()
         Errors.hide_label_oper()
 
+    # Sacar y enviar el dimensiones de la matriz, validar
     @staticmethod
     def send_col_row():
         try:
@@ -87,6 +91,7 @@ class Frame_Operaciones:
             Errors.msg_error = e
             Errors.show_label_oper()
 
+    # Crear el frame
     @staticmethod
     def create_frame():
         Frame_Operaciones.frame_oper = CTkFrame(
@@ -206,8 +211,13 @@ class Frame_Operaciones:
             corner_radius=5,
         )
 
+        # Enviar a Matriz el frame donde genera los entrys
         Matriz.defineRoot_oper(div_operaciones)
+        
+        # Enviar el label donde mostrará errores de ser necesario
         Errors.defineroot_oper(label_error)
+
+        # Enviar la ventana y el frame donde estoy
         Solution_Operaciones.define_root(
             Frame_Operaciones.root, Frame_Operaciones.frame_oper
         )

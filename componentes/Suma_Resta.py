@@ -10,10 +10,12 @@ class Suma_Resta:
     column : int
     band : bool
 
+    # Recibir cada entry que se genera
     @staticmethod
     def recibe_entrys(entry: CTkEntry):
         Suma_Resta.Matriz.append(entry) 
 
+    # Sacar el numero de cada entry, validarlo y retornar la matriz resultante
     @staticmethod
     def calculate_oper():
         matriz_1 = []

@@ -12,21 +12,25 @@ class Frame_determinante:
     nums: int
     array = []
 
+    # Recibe la ventana y el frame padre
     @staticmethod
     def define_root(app: CTk, frame_main: CTkFrame):
         Frame_determinante.root = app
         Frame_determinante.main = frame_main
 
+    # Muestra el frame y oculta al padre
     @staticmethod
     def show_frame_det():
         Frame_determinante.frame_def_determinante.pack(fill="both", expand=1)
         Frame_determinante.main.pack_forget()
 
+    # Devolver al frame principal
     @staticmethod
     def change_destroy():
         Frame_determinante.main.pack(fill="both", expand=1)
         Frame_determinante.frame_def_determinante.pack_forget()
 
+    # Sacar y enviar el tamaño de la matriz
     @staticmethod
     def splitChoice(choice: str):
         if choice.find("x"):
@@ -37,6 +41,7 @@ class Frame_determinante:
                 Determinante.Matriz.clear()
             Matriz.createMatriz(nums, nums)
 
+    # Crear el frame
     @staticmethod
     def create_frame():
         Frame_determinante.frame_def_determinante = CTkFrame(
@@ -98,9 +103,6 @@ class Frame_determinante:
         )
         btn_calculate.pack(pady=20)
 
-        # switch_paso = CTkSwitch(frame_right, text="Paso a paso", onvalue="ON", offvalue="OFF")
-        # switch_paso.pack(pady=20)
-
         label_aclaraciones = CTkLabel(
             frame_right,
             wraplength=200,
@@ -131,8 +133,13 @@ class Frame_determinante:
             corner_radius=5,
         )
 
+        # Enviar a Matriz el frame donde genera los entrys
         Matriz.defineRoot(frame_det)
+
+        # Enviar el label donde mostrará errores de ser necesario
         Errors.defineroot_det(label_error)
+
+        # Enviar la ventana y el frame donde estoy
         Solution_determinante.define_root(
             Frame_determinante.root, Frame_determinante.frame_def_determinante
         )
