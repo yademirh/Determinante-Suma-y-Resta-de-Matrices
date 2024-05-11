@@ -53,6 +53,6 @@ class Errors:
     # Ocultar label error en frame suma/resta
     @staticmethod
     def hide_label_oper():
-        if --Errors.hide_2:
+        if not Errors.hide_2:            
             Errors.label_2.pack_forget()
             Errors.hide_2 = True

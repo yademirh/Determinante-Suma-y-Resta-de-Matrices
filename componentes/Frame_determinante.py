@@ -83,7 +83,7 @@ class Frame_determinante:
 
         options_sizeDet = CTkComboBox(
             container,
-            values=["1x1", "2x2", "3x3", "4x4", "5x5", "6x6", "7x7"],
+            values=["1x1", "2x2", "3x3", "4x4", "5x5", "6x6", "7x7", "8x8", "9x9"],
             button_color="LightCyan3",
             dropdown_hover_color="LightCyan4",
             command=Frame_determinante.splitChoice,

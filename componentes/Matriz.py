@@ -34,7 +34,7 @@ class Matriz:
             for j in range(column):
                 entry = CTkEntry(
                     master=Matriz.frame,
-                    width=40,
+                    width=60,
                     height=35,
                     justify="center",
                     font=("Arial", 16),
@@ -59,10 +59,10 @@ class Matriz:
             for j in range(column):
                 entry = CTkEntry(
                     master=Matriz.frame1,
-                    width=35,
-                    height=30,
+                    width=60,
+                    height=35,
                     justify="center",
-                    font=("Arial", 14),
+                    font=("Arial", 15),
                 )
                 entry.grid(column=j, row=i, padx=4, pady=4)
                 Suma_Resta.recibe_entrys(entry)
@@ -71,10 +71,10 @@ class Matriz:
             for j in range(column):
                 entry = CTkEntry(
                     master=Matriz.frame2,
-                    width=35,
-                    height=30,
+                    width=60,
+                    height=35,
                     justify="center",
-                    font=("Arial", 14),
+                    font=("Arial", 15),
                 )
                 entry.grid(column=j, row=i, padx=4, pady=4)
                 Suma_Resta.recibe_entrys(entry)
@@ -87,7 +87,7 @@ class Matriz:
     def show_matriz_sol(frame_sol: CTkFrame, row: int, col: int, rta_matriz: list):
         for i in range(row):
             for j in range(col):
-                label = CTkLabel(frame_sol, text=rta_matriz[i][j], width=35, height=30, font=("Arial", 16), corner_radius=5, fg_color="gray25")
+                label = CTkLabel(frame_sol, text=f"{round(rta_matriz[i][j],4):.4f}", width=35, height=30, font=("Arial", 16), corner_radius=5, fg_color="gray25")
                 label.grid(column=j, row=i, padx=5, pady=5)
         
         pass
